@@ -575,7 +575,10 @@ export class DownloaderHelper extends EventEmitter {
             readable.pipe(pipe.stream, pipe.options);
             readable = pipe.stream;
         });
-        readable.pipe(this.__fileStream);
+
+        this.__fileStream.on('open', () => {
+            readable.pipe(this.__fileStream);
+        });
         readable.on('error', this.__onError(resolve, reject));
 
         this.__fileStream.on('finish', this.__onFinished(resolve, reject));
