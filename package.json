@@ -2,7 +2,8 @@
   "name": "node-downloader-helper",
   "version": "2.1.9",
   "description": "A simple http/s file downloader for node.js",
-  "main": "./dist/index.js",
+  "type": "module",
+  "main": "./src/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "start": "npm run build && node ./example/index.js",
